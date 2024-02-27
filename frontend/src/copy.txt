@@ -1,0 +1,27 @@
+import React from "react";
+import "./style.css";
+
+export const Box = () => {
+    return (
+        <div className="box">
+            <div className="nav-bar">
+                <div className="overlap-group">
+                    <img className="register" alt="Register" src="icons8-register-50-1.png" />
+                    <img className="screenshot" alt="Screenshot" src="screenshot-2023-08-15-222116-1.png" />
+                    <div className="CHAMA-COMPUTERS">
+                        CHAMA
+                        <br />
+                        COMPUTERS
+                    </div>
+                    <div className="text-wrapper">Sign In</div>
+                    <div className="div">Sign Up</div>
+                    <div className="text-wrapper-2">My Cart</div>
+                    <img className="account" alt="Account" src="icons8-account-50-1.png" />
+                    <div className="overlap">
+                        <div className="text-wrapper-3">Search Products....</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    );
+};
