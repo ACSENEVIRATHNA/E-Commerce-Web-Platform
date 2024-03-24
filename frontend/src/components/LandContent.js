@@ -4,7 +4,7 @@ const LandContent = ({ product }) => {
   return (
     <>
     
-      <div className="product">
+      <div className="product col-3">
         {console.log(product.image)}
         {product.image && (
         <img

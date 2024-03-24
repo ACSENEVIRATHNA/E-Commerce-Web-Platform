@@ -1,17 +1,21 @@
 import { Link } from "react-router-dom";
 import { useLogout } from "../hooks/useLogout";
 import { useAuthContext } from "../hooks/useAuthContext";
+import { SearchBar } from "./SearchBar";
+import { useState } from "react";
+import { SearchResults } from "./SearchResults";
 
 const Header = () => {
   const { logout } = useLogout();
   const { user } = useAuthContext();
+  const [results, setResults] = useState([]);
 
   const handleClick = () => {
     logout();
   };
   return (
-    <div className="header1">
-      <div className="first">
+    <div className="header1 d-flex">
+      <div className="first col-5">
         <Link to="/">
           <img className="logo" alt="" src="logo.png" />
         </Link>
@@ -21,7 +25,9 @@ const Header = () => {
           COMPUTERS
         </div>
       </div>
-      {/* <input type="text" className="searchbar" /> */}
+      <SearchBar setResults = {setResults}/>
+      <SearchResults results={results}/>
+      <div className="col-2 d-flex gap-10">
       {!user && (
         <div className="accsign">
           <img alt="" src="acc.png" />
@@ -54,6 +60,7 @@ const Header = () => {
           </button>
         </div>
       )}
+      </div>
     </div>
   );
 };

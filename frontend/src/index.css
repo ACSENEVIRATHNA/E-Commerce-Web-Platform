@@ -67,8 +67,8 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content:space-around;
   text-align: center;
-  width: 200px;
   height: 270px;
   background-color: #fff;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
@@ -80,12 +80,12 @@
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
-.image {
+/* .image {
   max-width: 150px;
   height: 150px;
   margin-bottom: -15px;
   margin-top: -15px;
-}
+} */
 
 .name {
   font-weight: bold;
@@ -95,7 +95,6 @@
 
 .desc {
   font-size: 14px;
-  margin: 10px 0;
   color: #777;
 }
 
@@ -103,21 +102,6 @@
   font-size: 16px;
   font-weight: bold;
   color: #006aff;
-}
-
-.delete {
-  background-color: #FF6B6B;
-  color: white;
-  border: none;
-  padding: 8px 16px;
-  border-radius: 5px;
-  cursor: pointer;
-  margin-top: 10px;
-  transition: background-color 0.2s;
-}
-
-.delete:hover {
-  background-color: #FF4141;
 }
 
 /*FORM*/
@@ -175,13 +159,12 @@
 /*HEADER*/
 
 .header1{
+  display: flex;
   align-items: center;
   background-color: #ffffff;
   color: white;
   padding: 10px 20px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  display: grid;
-  grid-template-columns: 25fr 1fr 1fr;
 
 }
 .first{
@@ -190,9 +173,6 @@
 
 }
 .accsign{
-  padding-left: 10px;
-  display:block;
-  align-items: flex-start;
   color: #000000;
 }
 
@@ -202,7 +182,6 @@
   padding: 10px 20px;
   font-weight:lighter;
   text-align: center;
-  display: inline-block;
   cursor: pointer;
 }
 
@@ -211,9 +190,7 @@
 }
 
 .accreg{
-  display:block;
   color: #000000;
-  align-items: flex-start;
 }
 
 .signup-link {
@@ -222,7 +199,6 @@
   padding: 10px 20px;
   font-weight:lighter;
   text-align: center;
-  display: inline-block;
   cursor: pointer;
 }
 
@@ -231,14 +207,11 @@
 }
 
 .acclogout{
-  display:block;
   color: #000000;
-  align-items: flex-start;  
 }
 
 .logout-but{
   text-decoration: none;
-  display: inline-block;
   border: none;
   background: none;
   padding: 0;

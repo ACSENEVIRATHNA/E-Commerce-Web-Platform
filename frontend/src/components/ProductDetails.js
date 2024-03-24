@@ -1,6 +1,8 @@
 import React from "react";
 import { useProductContext } from "../hooks/useProductContext";
 import { useAuthContext } from "../hooks/useAuthContext";
+import { MdDelete } from "react-icons/md";
+import { MdEditDocument } from "react-icons/md";
 
 const ProductDetails = ({ product }) => {
   const { dispatch } = useProductContext();
@@ -10,12 +12,15 @@ const ProductDetails = ({ product }) => {
     if (!user) {
       return;
     }
-    const response = await fetch("http://localhost:4000/api/products/" + product._id, {
-      method: "DELETE",
-      headers: {
-        Authorization: `Bearer ${user.token}`,
-      },
-    });
+    const response = await fetch(
+      "http://localhost:4000/api/products/" + product._id,
+      {
+        method: "DELETE",
+        headers: {
+          Authorization: `Bearer ${user.token}`,
+        },
+      }
+    );
     const json = await response.json();
     if (response.ok) {
       dispatch({ type: "DELETE_PRODUCT", payload: json });
@@ -23,20 +28,27 @@ const ProductDetails = ({ product }) => {
   };
 
   return (
-    <div className="product">
+    <div className="product col-4 d-flex">
       {product.image && (
         <img
-          className="image"
+          className="image img-fluid"
           alt={product.name}
           src={`http://localhost:4000/api/public/image/${product._id}`}
         />
       )}
       <div className="name">{product.name}</div>
-      <p className="desc">{product.description}</p>
+      <div className="desc">
+        <p className="desc">{product.description}</p>
+      </div>
       <div className="price">Rs. {product.price}</div>
-      <button className="delete" onClick={handleClick}>
-        Delete
-      </button>
+      <div className="control">
+        <button className="delete" onClick={handleClick}>
+          <MdDelete className="icon" />
+        </button>
+        <button className="edit" onClick={handleClick}>
+          <MdEditDocument className="icon" />
+        </button>
+      </div>
     </div>
   );
 };
