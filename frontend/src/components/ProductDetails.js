@@ -10,7 +10,7 @@ const ProductDetails = ({ product }) => {
     if (!user) {
       return;
     }
-    const response = await fetch("http://localhost:3000/api/products/" + product._id, {
+    const response = await fetch("http://localhost:4000/api/products/" + product._id, {
       method: "DELETE",
       headers: {
         Authorization: `Bearer ${user.token}`,
@@ -28,7 +28,7 @@ const ProductDetails = ({ product }) => {
         <img
           className="image"
           alt={product.name}
-          src={`http://localhost:3000/api/public/image/${product._id}`}
+          src={`http://localhost:4000/api/public/image/${product._id}`}
         />
       )}
       <div className="name">{product.name}</div>

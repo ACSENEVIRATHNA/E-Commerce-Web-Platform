@@ -32,7 +32,7 @@ const ProductForm = () => {
     formData.append("price", price);
     formData.append("image", image);
     try {
-      const response = await axios.post("http://localhost:3000/api/products", formData, {
+      const response = await axios.post("http://localhost:4000/api/products", formData, {
         headers: {
           "Content-Type": "multipart/form-data",
           Authorization: `Bearer ${user.token}`, // Important for file uploads

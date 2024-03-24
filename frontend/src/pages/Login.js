@@ -1,17 +1,24 @@
-import { Link } from "react-router-dom";
+import { Link, Navigate } from "react-router-dom";
 import { useState } from "react";
 import { useLogin } from "../hooks/useLogin";
+import { useNavigate } from "react-router-dom";
+import { useAuthContext } from "../hooks/useAuthContext";
+
 
 const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const {login, error, isLoading} = useLogin();
+  const navigate = useNavigate();
+  const { user } = useAuthContext();
 
   const handleClick = async (e) => {
     e.preventDefault();
     await login (email, password)
     console.log(email, password);
-    error && console.log(error)  };
+    error && console.log(error);
+    user && navigate("/");
+  };
   return (
     <div className="login-page">
       <div className="div">

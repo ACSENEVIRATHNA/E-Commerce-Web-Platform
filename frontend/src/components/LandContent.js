@@ -10,7 +10,7 @@ const LandContent = ({ product }) => {
         <img
         className="image"
         alt={product.name}
-        src={`http://localhost:3000/api/public/image/${product._id}`}
+        src={`http://localhost:4000/api/public/image/${product._id}`}
       />
       )}
         <div className="name">{product.name}</div>

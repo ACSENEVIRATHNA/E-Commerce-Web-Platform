@@ -1,12 +1,14 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import { useSignUp } from "../hooks/useSignUp";
+import { useNavigate } from "react-router-dom";
 
 const Signup = () => {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const { signup, error, isLoading } = useSignUp();
+  const navigate = useNavigate();
 
   const handleClick = async (e) => {
     e.preventDefault();
@@ -18,6 +20,7 @@ const Signup = () => {
       setName("");
       setEmail("");
       setPassword("");
+      navigate('/login');
     }
   };
 
