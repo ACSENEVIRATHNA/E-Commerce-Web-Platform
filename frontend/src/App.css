@@ -52,12 +52,43 @@
 }
 
 
+.btn-acc{
+    border:none;
+    background-color: transparent;
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 5px;
+}
+
+.login-icon{
+    margin-left:-5px;
+    margin-right:5px;
+    font-size: 23px;
+}
+.logout-icon{
+    margin-left:-5px;
+    margin-right:5px;
+    font-size: 23px;
+}
+
+.dropdown-menu{
+    background-color: white;
+    border:none;
+    text-align: center;
+}
+
+.dropdown-item{
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
 /*search icon */
 .input-wrapper{
     border: 1px solid rgba(0, 0, 0, 0.25);
     border-radius: 5px;
     padding: 5px 10px;
-    width: 60%;
+    width: 100%;
     justify-content: space-between;
     align-items: center;
 
@@ -115,6 +146,7 @@
     text-decoration: none;
     color: black;
 }
+
 
 
 

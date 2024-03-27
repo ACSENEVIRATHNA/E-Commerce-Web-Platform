@@ -28,7 +28,7 @@ const ProductDetails = ({ product }) => {
   };
 
   return (
-    <div className="product col-4 d-flex">
+    <div className="product col-3 d-flex">
       {product.image && (
         <img
           className="image img-fluid"

@@ -28,11 +28,11 @@ export const SearchBar = ({ setResults }) => {
 
   return (
     <>
-      <div className="col-5">
+      <div className="col-7 d-flex justify-content-center p-3">
         <div className="input-wrapper d-flex">
           <input
             className="search-input"
-            placeholder="Type to search...."
+            placeholder="What are you looking for...."
             value={input}
             onChange={(e) => handleChange(e.target.value)}
           />

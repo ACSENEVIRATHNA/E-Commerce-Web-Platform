@@ -8,14 +8,14 @@ import { useAuthContext } from "../hooks/useAuthContext";
 
 const Home = () => {
   const { products, dispatch } = useProductContext();
-  const {user} = useAuthContext();
+  const { user } = useAuthContext();
 
   useEffect(() => {
     const fetchProducts = async () => {
-      const response = await fetch("http://localhost:4000/api/products",{
-        headers:{
-          'Authorization': `Bearer ${user.token}`
-        }
+      const response = await fetch("http://localhost:4000/api/products", {
+        headers: {
+          Authorization: `Bearer ${user.token}`,
+        },
       });
       const json = await response.json();
 
@@ -23,32 +23,25 @@ const Home = () => {
         dispatch({ type: "SET_PRODUCTS", payload: json });
       }
     };
-    if(user){
+    if (user) {
       fetchProducts();
     }
-    
   }, [dispatch, user]);
 
   return (
-    <div className="home">
-      <div className="header">
-        <Header />
-      </div>
-      <div className="content">
-        <div className="products">
+    <>
+      <Header />
+      <div className="create-wrapper d-flex justify-content-center">
+        <div className="products col-6">
           {products &&
             products.map((product) => (
               <ProductDetails key={product._id} product={product} />
             ))}
         </div>
-        <div className="form">
-          <ProductForm/>
-        </div>
+        <ProductForm />
       </div>
-      <div className="footer">
-        <Footer />
-      </div>
-    </div>
+      <Footer />
+    </>
   );
 };
 

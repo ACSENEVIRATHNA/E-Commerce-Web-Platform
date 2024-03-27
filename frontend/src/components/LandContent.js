@@ -3,8 +3,7 @@ import React from "react";
 const LandContent = ({ product }) => {
   return (
     <>
-    
-      <div className="product col-3">
+      <div className="product col-2">
         {console.log(product.image)}
         {product.image && (
         <img

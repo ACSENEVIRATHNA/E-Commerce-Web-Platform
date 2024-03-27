@@ -3,6 +3,7 @@ import LandContent from "../components/LandContent";
 import { useProductContext } from "../hooks/useProductContext";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
+import Carousel from "../components/Carousel";
 
 const Landing = () => {
   const { products, dispatch } = useProductContext();
@@ -19,11 +20,10 @@ const Landing = () => {
   }, [dispatch]);
 
   return (
-    <div className="home">
-      <div className="header">
-        <Header />
-      </div>
-      <div className="content1">
+    <>
+      <Header />
+      <div className="home">
+        <Carousel />
         <div className="products">
           {products &&
             products.map((product) => (
@@ -31,10 +31,8 @@ const Landing = () => {
             ))}
         </div>
       </div>
-      <div className="footer">
-        <Footer />
-      </div>
-    </div>
+      <Footer />
+    </>
   );
 };
 
