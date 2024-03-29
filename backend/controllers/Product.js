@@ -75,7 +75,7 @@ const updateProduct = async (req, res, next) => {
   let product;
   const { name, description, category, price } = req.body;
   if (!name && !description && !category && !price) {
-    return res.status(402).json({ message: "Invalid Data" });
+    return res.status(400).json({ message: "Invalid Data" });
   }
   try {
     product = await Product.findByIdAndUpdate(id, {
@@ -83,6 +83,10 @@ const updateProduct = async (req, res, next) => {
       description,
       category,
       price,
+      image: {
+        data: req.file.buffer,
+        contentType: req.file.mimetype,
+      },
     });
   } catch (err) {
     return next(err);

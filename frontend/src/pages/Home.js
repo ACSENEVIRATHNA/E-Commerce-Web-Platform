@@ -1,3 +1,4 @@
+import React, { useState } from "react";
 import { useEffect } from "react";
 import ProductDetails from "../components/ProductDetails";
 import { useProductContext } from "../hooks/useProductContext";
@@ -9,6 +10,8 @@ import { useAuthContext } from "../hooks/useAuthContext";
 const Home = () => {
   const { products, dispatch } = useProductContext();
   const { user } = useAuthContext();
+  const [selectedProduct, setSelectedProduct] = useState(null);
+
 
   useEffect(() => {
     const fetchProducts = async () => {
@@ -26,7 +29,15 @@ const Home = () => {
     if (user) {
       fetchProducts();
     }
-  }, [dispatch, user]);
+  },[dispatch, user]);
+
+  const handleEditProduct = (product) => {
+    setSelectedProduct(product);
+  };
+
+  const handleCancelEdit = () => {
+    setSelectedProduct(null);
+  };
 
   return (
     <>
@@ -35,10 +46,10 @@ const Home = () => {
         <div className="products col-6">
           {products &&
             products.map((product) => (
-              <ProductDetails key={product._id} product={product} />
+              <ProductDetails key={product._id} product={product} onEdit={handleEditProduct}/>
             ))}
         </div>
-        <ProductForm />
+        <ProductForm product={selectedProduct} onCancelEdit={handleCancelEdit}/>
       </div>
       <Footer />
     </>

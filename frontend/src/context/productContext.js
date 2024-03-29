@@ -9,12 +9,21 @@ export const productsReducer = (state, action) => {
         products: action.payload,
       };
     case "CREATE_PRODUCT":
+      console.log("Rendering product", action.payload);
       return {
         products: [action.payload, ...state.products],
       };
     case "DELETE_PRODUCT":
       return {
         products: state.products.filter((p) => p._id !== action.payload._id),
+      };
+    case "UPDATE_PRODUCT":
+      console.log("Updating product:", action.payload);
+      return {
+        ...state,
+        products: state.products.map((product) =>
+          product._id === action.payload._id ? action.payload : product
+        ),
       };
     default:
       return state;

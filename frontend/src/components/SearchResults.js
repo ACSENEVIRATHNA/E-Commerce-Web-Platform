@@ -2,7 +2,6 @@ import React from "react";
 import { SearchResult } from "./SearchResult";
 
 export const SearchResults = ({ results }) => {
-    console.log(results);
   return (
     <>
       <div className={results.length >0 ? "display-flex" : "display-none"}>

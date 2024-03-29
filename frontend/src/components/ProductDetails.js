@@ -4,7 +4,7 @@ import { useAuthContext } from "../hooks/useAuthContext";
 import { MdDelete } from "react-icons/md";
 import { MdEditDocument } from "react-icons/md";
 
-const ProductDetails = ({ product }) => {
+const ProductDetails = ({ product ,onEdit }) => {
   const { dispatch } = useProductContext();
   const { user } = useAuthContext();
 
@@ -27,6 +27,10 @@ const ProductDetails = ({ product }) => {
     }
   };
 
+  const edit = () => {
+    onEdit(product);
+  }
+
   return (
     <div className="product col-3 d-flex">
       {product.image && (
@@ -45,7 +49,7 @@ const ProductDetails = ({ product }) => {
         <button className="delete" onClick={handleClick}>
           <MdDelete className="icon" />
         </button>
-        <button className="edit" onClick={handleClick}>
+        <button className="edit" onClick={edit}>
           <MdEditDocument className="icon" />
         </button>
       </div>
