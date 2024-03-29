@@ -29,7 +29,7 @@ const Home = () => {
     if (user) {
       fetchProducts();
     }
-  },[dispatch, user]);
+  },[dispatch,user, selectedProduct]);
 
   const handleEditProduct = (product) => {
     setSelectedProduct(product);

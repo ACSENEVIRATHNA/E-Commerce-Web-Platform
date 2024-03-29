@@ -87,14 +87,14 @@ const updateProduct = async (req, res, next) => {
         data: req.file.buffer,
         contentType: req.file.mimetype,
       },
-    });
+    },{new: true});
   } catch (err) {
     return next(err);
   }
   if (!product) {
     return res.status(500).json({ message: "Unable to update product" });
   }
-  return res.status(200).json({ product });
+  res.status(200).json(product);  
 };
 
 const deleteProduct = async (req, res) => {

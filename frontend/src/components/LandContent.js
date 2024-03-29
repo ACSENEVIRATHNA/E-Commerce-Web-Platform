@@ -7,7 +7,7 @@ const LandContent = ({ product }) => {
         {console.log(product.image)}
         {product.image && (
         <img
-        className="image"
+        className="image img-fluid"
         alt={product.name}
         src={`http://localhost:4000/api/public/image/${product._id}`}
       />

@@ -44,7 +44,7 @@ const ProductForm = ({ product, onCancelEdit }) => {
     formData.append("image", image);
     try {
       if (product) {
-        console.log(formData.get("image"));
+        console.log(formData.get("name"));
         const response = await axios.put(
           `http://localhost:4000/api/products/${product._id}`,
           formData,
@@ -55,9 +55,11 @@ const ProductForm = ({ product, onCancelEdit }) => {
             },
           }
         );
+        const json = response.data;
+
         if (response.status === 200) {
-          console.log("Product updated successfully:", response.data);
-          dispatch({ type: "UPDATE_PRODUCT", payload: response.data });
+          console.log("Product updated successfully:", json);
+          dispatch({ type: "UPDATE_PRODUCT", payload: json });
           onCancelEdit();
         }
       } else {
@@ -87,6 +89,7 @@ const ProductForm = ({ product, onCancelEdit }) => {
     } catch (error) {
       setError(error.response.data.error);
     }
+
   };
 
   return (

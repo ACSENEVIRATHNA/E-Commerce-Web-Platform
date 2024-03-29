@@ -8,12 +8,14 @@ const ProductDetails = ({ product ,onEdit }) => {
   const { dispatch } = useProductContext();
   const { user } = useAuthContext();
 
+  let imageData = `http://localhost:4000/api/public/image/${product._id}?timestamp=${new Date().getTime()}`;
+
   const handleClick = async () => {
     if (!user) {
       return;
     }
     const response = await fetch(
-      "http://localhost:4000/api/products/" + product._id,
+      `http://localhost:4000/api/products/${product._id}`,
       {
         method: "DELETE",
         headers: {
@@ -37,7 +39,7 @@ const ProductDetails = ({ product ,onEdit }) => {
         <img
           className="image img-fluid"
           alt={product.name}
-          src={`http://localhost:4000/api/public/image/${product._id}`}
+          src={imageData}
         />
       )}
       <div className="name">{product.name}</div>
