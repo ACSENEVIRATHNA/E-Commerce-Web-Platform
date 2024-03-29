@@ -31,12 +31,11 @@
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
-/* .image {
-  max-width: 150px;
-  height: 150px;
-  margin-bottom: -15px;
-  margin-top: -15px;
-} */
+.pro-image{
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+}
 
 .name {
   font-weight: bold;
@@ -120,6 +119,16 @@
 
 .carousel{
   padding: 20px 0;
+}
+
+.carousel-item{
+  height: 200px;
+}
+
+.car-img{
+  max-height:100%;
+  max-width: 100%;
+  object-fit: contain;
 }
 .first{
   display: flex;
