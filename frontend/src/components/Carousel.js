@@ -4,8 +4,8 @@ const Carousel = () => {
 
   return (
     <>
-      <div className=" carousel-wrapper col-7">
-        <div id="carouselExampleIndicators" className="carousel slide">
+      <div className=" carousel-wrapper col-6 d-flex gap-10 ">
+        <div id="carouselExampleIndicators" className="carousel slide ">
           <div class="carousel-indicators">
             <button
               type="button"
