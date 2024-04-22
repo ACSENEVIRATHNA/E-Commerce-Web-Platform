@@ -31,6 +31,10 @@
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
+.img-container{
+  height: 55%;
+  max-width: 100%;
+}
 .pro-image{
   max-width: 100%;
   max-height: 100%;
