@@ -15,7 +15,7 @@ const Home = () => {
 
   useEffect(() => {
     const fetchProducts = async () => {
-      const response = await fetch("http://localhost:4000/api/products", {
+      const response = await fetch("https://chama-computers.onrender.com/api/products", {
         headers: {
           Authorization: `Bearer ${user.token}`,
         },

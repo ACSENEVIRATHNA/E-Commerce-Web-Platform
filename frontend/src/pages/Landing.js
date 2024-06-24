@@ -9,7 +9,7 @@ const Landing = () => {
   const { products, dispatch } = useProductContext();
   useEffect(() => {
     const fetchProducts = async () => {
-      const response = await fetch("http://localhost:4000/api/public");
+      const response = await fetch("https://chama-computers.onrender.com/api/public");
       const json = await response.json();
 
       if (response.ok) {
