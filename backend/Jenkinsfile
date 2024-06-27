@@ -11,7 +11,6 @@ pipeline {
                         docker stop backend
                         docker rm backend
                     fi
-                    '''
 
                     // Stop and remove any running containers using the "backend" image
                     CONTAINER_ID=$(docker ps -q --filter ancestor=backend)
