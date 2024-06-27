@@ -1,0 +1,44 @@
+pipeline {
+    agent any
+    
+    stages {
+        stage('Clean Up') {
+            steps {
+                script {
+                    // Stop and remove any running containers with the name "front-end"
+                    sh '''
+                    if [ "$(docker ps -q -f name=backend)" ]; then
+                        docker stop backend
+                        docker rm backend
+                    fi
+                    '''
+
+                    // Remove the existing image named "front-end" if it exists
+                    sh '''
+                    if [ "$(docker images -q backend)" ]; then
+                        docker rmi backend
+                    fi
+                    '''
+                }
+            }
+        }
+        
+        stage('Build Image') {
+            steps {
+                script {
+                    // Build the Docker image
+                    sh 'docker build -t backend ./backend'
+                }
+            }
+        }
+        
+        stage('Run Container') {
+            steps {
+                script {
+                    // Run the Docker container
+                    sh 'docker run -d --name backend -p 3000:3000 backend'
+                }
+            }
+        }
+    }
+}
