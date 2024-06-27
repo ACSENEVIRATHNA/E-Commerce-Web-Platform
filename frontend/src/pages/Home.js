@@ -15,7 +15,7 @@ const Home = () => {
 
   useEffect(() => {
     const fetchProducts = async () => {
-      const response = await fetch("https://chama-computers.onrender.com/api/products", {
+      const response = await fetch("http://13.48.55.164/api/products", {
         headers: {
           Authorization: `Bearer ${user.token}`,
         },
