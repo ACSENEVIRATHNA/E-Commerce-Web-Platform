@@ -5,7 +5,7 @@ pipeline {
         stage('Clean Up') {
             steps {
                 script {
-                    // Stop and remove any running containers with the name "front-end"
+                    // Stop and remove any running containers with the name "backend"
                     sh '''
                     if [ "$(docker ps -q -f name=backend)" ]; then
                         docker stop backend
@@ -13,10 +13,16 @@ pipeline {
                     fi
                     '''
 
-                    // Remove the existing image named "front-end" if it exists
-                    sh '''
+                    // Stop and remove any running containers using the "backend" image
+                    CONTAINER_ID=$(docker ps -q --filter ancestor=backend)
+                    if [ "$CONTAINER_ID" ]; then
+                        docker stop $CONTAINER_ID
+                        docker rm $CONTAINER_ID
+                    fi
+
+                    // Remove the existing image named "backend" if it exists
                     if [ "$(docker images -q backend)" ]; then
-                        docker rmi backend
+                        docker rmi -f backend
                     fi
                     '''
                 }
