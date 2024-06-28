@@ -14,7 +14,7 @@ pipeline {
                     '''
                     sh '''
 
-                    // Remove the existing image named "backend" if it exists
+                    # Remove the existing image named "backend" if it exists
                     if [ "$(docker images -q backend)" ]; then
                         docker rmi -f backend
                     fi
