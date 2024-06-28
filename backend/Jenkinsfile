@@ -36,7 +36,7 @@ pipeline {
             steps {
                 script {
                     // Run the Docker container
-                    sh 'docker run -d --name backend -p 3000:3000 backend'
+                    sh 'docker run -d --name backend -p 4000:4000 backend'
                 }
             }
         }
