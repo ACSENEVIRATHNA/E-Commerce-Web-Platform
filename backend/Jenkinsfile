@@ -11,6 +11,8 @@ pipeline {
                         docker stop backend
                         docker rm backend
                     fi
+                    '''
+                    sh '''
 
                     // Remove the existing image named "backend" if it exists
                     if [ "$(docker images -q backend)" ]; then
