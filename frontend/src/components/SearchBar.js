@@ -5,7 +5,7 @@ import { FaSearch } from "react-icons/fa";
 export const SearchBar = ({ setResults }) => {
   const [input, setInput] = useState("");
   const fetchData = (value) => {
-    fetch("http://localhost:4000/api/public")
+    fetch("http://13.48.55.164:4000/api/public")
       .then((response) => response.json())
       .then((json) => {
         const results = json.filter((product) => {

@@ -46,7 +46,7 @@ const ProductForm = ({ product, onCancelEdit }) => {
       if (product) {
         console.log(formData.get("name"));
         const response = await axios.put(
-          `http://localhost:4000/api/products/${product._id}`,
+          `http://13.48.55.164:4000/api/products/${product._id}`,
           formData,
           {
             headers: {
@@ -64,7 +64,7 @@ const ProductForm = ({ product, onCancelEdit }) => {
         }
       } else {
         const response = await axios.post(
-          "http://localhost:4000/api/products",
+          "http://13.48.55.164:4000/api/products",
           formData,
           {
             headers: {
