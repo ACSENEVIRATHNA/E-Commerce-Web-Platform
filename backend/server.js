@@ -27,6 +27,9 @@ mongoose
     console.log(err);
   });
 
+app.use("/", async (req, res) => {
+  res.status(200).json('I am working...');
+})
 app.use("/api/users", userRouter);
 app.use("/api/products", productRouter);
 app.use("/api/public",publicRouter);

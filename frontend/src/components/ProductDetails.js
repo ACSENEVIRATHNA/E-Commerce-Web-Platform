@@ -8,14 +8,14 @@ const ProductDetails = ({ product ,onEdit }) => {
   const { dispatch } = useProductContext();
   const { user } = useAuthContext();
 
-  let imageData = `http://13.48.55.164:4000/api/public/image/${product._id}?timestamp=${new Date().getTime()}`;
+  let imageData = `http://13.48.55.34:4000/api/public/image/${product._id}?timestamp=${new Date().getTime()}`;
 
   const handleClick = async () => {
     if (!user) {
       return;
     }
     const response = await fetch(
-      `http://13.48.55.164:4000/api/products/${product._id}`,
+      `http://13.48.55.34:4000/api/products/${product._id}`,
       {
         method: "DELETE",
         headers: {
