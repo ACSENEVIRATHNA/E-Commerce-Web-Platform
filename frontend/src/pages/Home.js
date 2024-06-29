@@ -6,7 +6,7 @@ import Header from "../components/Header";
 import Footer from "../components/Footer";
 import ProductForm from "../components/ProductForm";
 import { useAuthContext } from "../hooks/useAuthContext";
-
+//comment
 const Home = () => {
   const { products, dispatch } = useProductContext();
   const { user } = useAuthContext();
