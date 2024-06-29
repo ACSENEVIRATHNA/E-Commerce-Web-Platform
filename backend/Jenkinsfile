@@ -7,7 +7,7 @@ pipeline {
                 script {
                     // Stop and remove any running containers with the name "backend"
                     sh '''
-                    if [ "$(docker ps -q -f name=backend)" ]; then
+                    if [ "$(docker ps -qa -f name=backend)" ]; then
                         docker stop backend
                         docker rm backend
                     fi
